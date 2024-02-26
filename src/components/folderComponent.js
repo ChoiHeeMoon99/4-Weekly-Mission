@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../style/folderComponent.css";
+import "../style/foldercomponent.css";
 import fetchData from "../api/FetchData";
 function FolderComponent() {
   const [folderData, setFolderData] = useState({

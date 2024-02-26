@@ -6,10 +6,20 @@ import shareImg from "../assets/share.png";
 import penImg from "../assets/pen.png";
 import deleteImg from "../assets/delete.png";
 import FolderCard from "./folderCard";
+import ModalAddFolder from "./modalAddFolder";
+
 function FolderList() {
   const [folderList, setFolderList] = useState(null);
   const [selectedFolder, setSelectedFolder] = useState("전체");
   const [linkToFetch, setLinkToFetch] = useState("users/1/links");
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
   useEffect(() => {
     const fetchFolderList = async () => {
       try {
@@ -57,10 +67,11 @@ function FolderList() {
               </button>
             ))}
         </div>
-        <button className="addFolder">
+        <button className="addFolder" onClick={openModal}>
           <p className="addFolderText">폴더 추가</p>
           <img src={addImg} alt="addFolder" />
         </button>
+        <ModalAddFolder isOpen={modalOpen} onClose={closeModal} />
       </div>
       {selectedFolder !== "전체" ? (
         <div className="folderOption-container">
