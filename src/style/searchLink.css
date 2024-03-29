@@ -4,6 +4,15 @@
   margin: 50px;
   position: relative;
   top: 30px;
+  background-color: #f5f5f5;
+}
+.searchIcon {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 16px;
 }
 .search-link {
   width: 1060px;
@@ -11,6 +20,14 @@
   border-radius: 10px;
   border: none;
   background-color: #f5f5f5;
+}
+.searchCloseIcon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-self: center;
+  margin-right: 16px;
+  cursor: pointer;
 }
 @media (min-width: 768px) and (max-width: 1199px) {
   .search-link {

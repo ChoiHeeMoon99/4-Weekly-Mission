@@ -1,24 +1,26 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import fetchData from "../api/FetchData";
 import { formatDate, getTimeDifference } from "../util";
 import "../style/card.css";
 import starImg from "../assets/star.png";
 import kebabImg from "../assets/kebab.png";
+
 interface Item {
   image_source: string;
   url: string;
   created_at: string;
   description: string;
 }
+
 interface FolderCardProps {
   linkToFetch: string;
+  searchWord?: string;
 }
-function FolderCard({ linkToFetch }: FolderCardProps) {
+
+function FolderCard({ linkToFetch, searchWord }: FolderCardProps) {
   const [items, setItems] = useState<Item[] | null>(null);
 
   useEffect(() => {
-    console.log(linkToFetch);
     const fetchCardData = async () => {
       const data = await fetchData(linkToFetch);
       if (data) {
@@ -28,10 +30,19 @@ function FolderCard({ linkToFetch }: FolderCardProps) {
     fetchCardData();
   }, [linkToFetch]);
 
+  const filteredItems =
+    items && searchWord
+      ? items.filter(
+          (item) =>
+            (item.url && item.url.includes(searchWord)) ||
+            (item.description && item.description.includes(searchWord)),
+        )
+      : items;
+
   return (
     <div className="cardImg-grid">
-      {items && items.length > 0 ? (
-        items.map((item, id) => (
+      {filteredItems && filteredItems.length > 0 ? (
+        filteredItems.map((item, id) => (
           <div className="card-container" key={id}>
             <div className="cardImg-container">
               <img
@@ -61,4 +72,5 @@ function FolderCard({ linkToFetch }: FolderCardProps) {
     </div>
   );
 }
+
 export default FolderCard;

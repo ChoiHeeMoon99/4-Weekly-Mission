@@ -7,6 +7,7 @@ import shareImg from "../assets/share.png";
 import penImg from "../assets/pen.png";
 import deleteImg from "../assets/delete.png";
 import FolderCard from "./folderCard";
+import SearchLink from "./searchLink";
 interface Link {
   count: number;
 }
@@ -25,6 +26,7 @@ function FolderList() {
   const [folderList, setFolderList] = useState<FolderData | null>(null);
   const [selectedFolder, setSelectedFolder] = useState<string>("전체");
   const [linkToFetch, setLinkToFetch] = useState<string>("users/1/links");
+  const [searchWord, setSearchWord] = useState<string>("");
   useEffect(() => {
     const fetchFolderList = async () => {
       try {
@@ -47,8 +49,13 @@ function FolderList() {
       : "users/1/links";
     setLinkToFetch(linkToFetch);
   };
+  const handleSearchWordChange = (word: string) => {
+    setSearchWord(word);
+    console.log(searchWord);
+  };
   return (
     <div>
+      <SearchLink onSearchWordChange={handleSearchWordChange} />
       <div className="sorting-container">
         <div className="sortingBtn-container">
           <button
@@ -101,7 +108,7 @@ function FolderList() {
         </div>
       )}
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <FolderCard linkToFetch={linkToFetch} />
+        <FolderCard linkToFetch={linkToFetch} searchWord={searchWord} />
       </div>
     </div>
   );
