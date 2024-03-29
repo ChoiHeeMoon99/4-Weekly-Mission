@@ -35,6 +35,7 @@ function FolderList() {
           setFolderList(data);
         }
       } catch (e) {
+        console.error(e);
         alert("error" + e);
       }
     };
@@ -51,7 +52,6 @@ function FolderList() {
   };
   const handleSearchWordChange = (word: string) => {
     setSearchWord(word);
-    console.log(searchWord);
   };
   return (
     <div>

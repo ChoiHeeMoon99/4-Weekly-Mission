@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "../style/card.css";
 import { formatDate, getTimeDifference } from "../util";
 import fetchData from "../api/FetchData";
+import SearchLink from "./searchLink";
 
 interface Item {
   imageSource: string;
@@ -12,7 +13,7 @@ interface Item {
 }
 function Card() {
   const [items, setItems] = useState<Item[] | null>(null);
-
+  const [searchWord, setSearchWord] = useState("");
   useEffect(() => {
     const fetchCardData = async () => {
       const data = await fetchData("sample/folder");
@@ -22,9 +23,12 @@ function Card() {
     };
     fetchCardData();
   }, []);
-
+  const handleSearchWordChange = (word: string) => {
+    setSearchWord(word);
+  };
   return (
     <div className="cardImg-grid">
+      <SearchLink onSearchWordChange={handleSearchWordChange} />
       {items &&
         items.map((item, id) => (
           <div className="card-container" key={id}>
