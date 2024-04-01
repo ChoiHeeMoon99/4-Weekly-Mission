@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import "../style/folderComponent.css";
+import "../style/foldercomponent.css";
 import fetchData from "../api/FetchData";
 interface FolderData {
   ownerName: string | null;
