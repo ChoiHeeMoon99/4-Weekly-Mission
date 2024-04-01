@@ -25,6 +25,7 @@ function Card() {
   }, []);
   const handleSearchWordChange = (word: string) => {
     setSearchWord(word);
+    console.log(searchWord);
   };
   return (
     <div className="cardImg-grid">
