@@ -1,0 +1,27 @@
+.inputContainer {
+  position: relative;
+}
+.inputText {
+  border: 1px solid #ccd5e3;
+  width: 350px;
+  height: 60px;
+  padding: 18px 15px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+.inputText.err {
+  border: 1px solid #ff5b56;
+}
+.inputText:focus {
+  border: 1px solid #6d6afe;
+}
+.eyeIcon {
+  position: absolute;
+  right: 170px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.errorMsg {
+  color: #ff5b56;
+  font-size: 14px;
+}
