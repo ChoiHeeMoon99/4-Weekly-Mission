@@ -2,6 +2,7 @@ import React from "react";
 import Profile from "./profile";
 import "../../styles/HeaderNavigation.css";
 import Link from "next/link";
+import Logo from "@/public/images/logo.png";
 import Image from "next/image";
 function HeaderNavigation() {
   return (
@@ -12,7 +13,7 @@ function HeaderNavigation() {
             width={133}
             height={24}
             className="logo"
-            src="/images/logo.png"
+            src={Logo}
             alt="logo"
           />
         </Link>

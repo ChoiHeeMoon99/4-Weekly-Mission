@@ -1,7 +1,8 @@
 "use client";
 import React, { ChangeEvent, useState } from "react";
 import "../../styles/searchLink.css";
-
+import searchIcon from "@/public/images/Search.png";
+import searchCloseIcon from "@/public/images/_close.png";
 import Image from "next/image";
 interface Props {
   onSearchWordChange: (word: string) => void;
@@ -19,13 +20,7 @@ function SearchLink({ onSearchWordChange }: Props) {
   };
   return (
     <form className="searchLink-container">
-      <Image
-        width={16}
-        height={16}
-        className="searchIcon"
-        src="/images/Search.png"
-        alt="searchIcon"
-      />
+      <Image className="searchIcon" src={searchIcon} alt="searchIcon" />
       <input
         className="search-link"
         placeholder="링크를 검색해 보세요."
@@ -35,7 +30,7 @@ function SearchLink({ onSearchWordChange }: Props) {
       {searchWord && (
         <Image
           className="searchCloseIcon"
-          src="/images/_close.png"
+          src={searchCloseIcon}
           alt="searchClose"
           onClick={handleInputClear}
         />

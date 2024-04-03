@@ -5,6 +5,11 @@ import fetchData from "../apis/FetchData";
 import FolderCard from "./folderCard";
 import SearchLink from "./searchLink";
 import Image from "next/image";
+import addIcon from "@/public/images/add.png";
+import shareIcon from "@/public/images/share.png";
+import penIcon from "@/public/images/pen.png";
+import deleteIcon from "@/public/images/delete.png";
+
 interface Link {
   count: number;
 }
@@ -33,7 +38,6 @@ function FolderList() {
         }
       } catch (e) {
         console.error(e);
-        alert("error" + e);
       }
     };
     fetchFolderList();
@@ -78,7 +82,7 @@ function FolderList() {
         </div>
         <button className="addFolder">
           <p className="addFolderText">폴더 추가</p>
-          <Image width={16} height={16} src="/images/add.png" alt="addFolder" />
+          <Image width={16} height={16} src={addIcon} alt="addFolder" />
         </button>
       </div>
       {selectedFolder !== "전체" ? (
@@ -86,15 +90,15 @@ function FolderList() {
           <p className="folderName">{selectedFolder}</p>
           <div className="folderOption">
             <div>
-              <Image src="/images/share.png" alt="shareImg" />
+              <Image src={shareIcon} alt="shareImg" />
               <p>공유</p>
             </div>
             <div>
-              <Image src="/images/pen.png" alt="penImg" />
+              <Image src={penIcon} alt="penImg" />
               <p>이름 변경</p>
             </div>
             <div>
-              <Image src="/images/delete.png" alt="deleteImg" />
+              <Image src={deleteIcon} alt="deleteImg" />
               <p>삭제</p>
             </div>
           </div>

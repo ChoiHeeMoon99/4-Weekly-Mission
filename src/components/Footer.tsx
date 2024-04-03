@@ -1,6 +1,10 @@
 import React from "react";
 import "../../styles/footer.css";
 import Image from "next/image";
+import facebook from "@/public/images/facebook.png";
+import twitter from "@/public/images/twitter.png";
+import youtube from "@/public/images/youtube.png";
+import instagram from "@/public/images/instagram.png";
 function Footer() {
   return (
     <div className="footer-container">
@@ -10,20 +14,10 @@ function Footer() {
         <p>FAQ</p>
       </div>
       <div className="footer-sns">
-        <Image
-          width={20}
-          height={20}
-          src="/images/facebook.png"
-          alt="facebook"
-        />
-        <Image width={20} height={20} src="/images/twitter.png" alt="twitter" />
-        <Image width={20} height={20} src="/images/youtube.png" alt="youtube" />
-        <Image
-          width={20}
-          height={20}
-          src="/images/instagram.png"
-          alt="instagram"
-        />
+        <Image width={20} height={20} src={facebook} alt="facebook" />
+        <Image width={20} height={20} src={twitter} alt="twitter" />
+        <Image width={20} height={20} src={youtube} alt="youtube" />
+        <Image width={20} height={20} src={instagram} alt="instagram" />
       </div>
     </div>
   );

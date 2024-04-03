@@ -5,7 +5,6 @@ import "../../styles/card.css";
 import { formatDate, getTimeDifference } from "../utils/util";
 import fetchData from "../apis/FetchData";
 import SearchLink from "./searchLink";
-import Image from "next/image";
 
 interface Item {
   imageSource: string;
@@ -27,6 +26,7 @@ function Card() {
   }, []);
   const handleSearchWordChange = (word: string) => {
     setSearchWord(word);
+    console.log(searchWord);
   };
   return (
     <div>

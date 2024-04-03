@@ -38,7 +38,7 @@ function Profile() {
         <button>로그인</button>
       ) : (
         <div className="profile-container">
-          <Image
+          <img
             width={28}
             height={28}
             className="userImg"

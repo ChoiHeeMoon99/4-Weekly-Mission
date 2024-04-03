@@ -27,7 +27,7 @@ function FolderComponent() {
           });
         }
       } catch (e) {
-        alert("error" + e);
+        console.error(e);
       }
     };
     fetchFolderData();
@@ -35,7 +35,7 @@ function FolderComponent() {
 
   return (
     <div className="folder-container">
-      <Image
+      <img
         className="profileImg"
         src={folderData.profileImage ?? ""}
         alt="profileImg"

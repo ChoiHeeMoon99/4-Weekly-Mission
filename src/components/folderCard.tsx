@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import fetchData from "../apis/FetchData";
 import { formatDate, getTimeDifference } from "../utils/util";
 import "../../styles/card.css";
+import kebab from "@/public/images/kebab.png";
+import star from "@/public/images/star.png";
 import Image from "next/image";
 
 interface Item {
@@ -46,13 +48,11 @@ function FolderCard({ linkToFetch, searchWord }: FolderCardProps) {
           <div className="card-container" key={id}>
             <div className="cardImg-container">
               <Image
-                width={330}
-                height={200}
                 className="cardFavoriteImg"
-                src="/images/star.png"
+                src={star}
                 alt="cardFavoriteImg"
               />
-              <Image className="cardImg" src={item.image_source} alt="img" />
+              <img className="cardImg" src={item.image_source} alt="img" />
             </div>
             <a href={item.url}>
               <div className="cardScript">
@@ -60,7 +60,7 @@ function FolderCard({ linkToFetch, searchWord }: FolderCardProps) {
                   <p className="timeDifference">
                     {getTimeDifference(item.created_at)}
                   </p>
-                  <Image src="/images/kebab.png" alt="kebabImg" />
+                  <Image src={kebab} alt="kebabImg" />
                 </div>
                 <p className="item-description">{item.description}</p>
                 <p>{formatDate(item.created_at)}</p>
