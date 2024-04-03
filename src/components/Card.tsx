@@ -27,26 +27,27 @@ function Card() {
   }, []);
   const handleSearchWordChange = (word: string) => {
     setSearchWord(word);
-    console.log(searchWord);
   };
   return (
-    <div className="cardImg-grid">
+    <div>
       <SearchLink onSearchWordChange={handleSearchWordChange} />
-      {items &&
-        items.map((item, id) => (
-          <div className="card-container" key={id}>
-            <Image className="cardImg" src={item.imageSource} alt="img" />
-            <a href={item.url}>
-              <div className="cardScript">
-                <p className="timeDifference">
-                  {getTimeDifference(item.createdAt)}
-                </p>
-                <p className="item-description">{item.description}</p>
-                <p>{formatDate(item.createdAt)}</p>
-              </div>
-            </a>
-          </div>
-        ))}
+      <div className="cardImg-grid">
+        {items &&
+          items.map((item, id) => (
+            <div className="card-container" key={id}>
+              <img className="cardImg" src={item.imageSource} alt="img" />
+              <a href={item.url}>
+                <div className="cardScript">
+                  <p className="timeDifference">
+                    {getTimeDifference(item.createdAt)}
+                  </p>
+                  <p className="item-description">{item.description}</p>
+                  <p>{formatDate(item.createdAt)}</p>
+                </div>
+              </a>
+            </div>
+          ))}
+      </div>
     </div>
   );
 }
